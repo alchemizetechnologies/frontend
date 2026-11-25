@@ -1,46 +1,52 @@
 
 import React from "react";
+import { Link } from "react-router-dom";
 import "./Footer.css";
 
 const popularFeatures = [
-  "Marketing Hub",
-  "Sales Hub",
-  "Service Hub",
-  "Content Hub",
-  "Data Hub",
-  "Commerce Hub",
-  "Smart CRM",
-  "Breeze AI",
+  ["All Products and Features", "products"],
+  ["HubSpot AEO", "aeo"],
+  ["Free Meeting Scheduler App", "meeting-scheduler"],
+  ["Email Tracking Software", "email-tracking"],
+  ["AI Content Writer", "ai-content-writer"],
+  ["AI Website Generator", "ai-website-generator"],
+  ["Free Website Builder", "website-builder"],
+  ["Free Landing Page Builder", "landing-page-builder"],
+  ["Free Online Form Builder", "online-form-builder"],
+  ["Free Chatbot Builder", "chatbot-builder"],
+  ["Free Live Chat Software", "live-chat"],
+  ["Marketing Analytics", "marketing-analytics"],
 ];
 
 const freeTools = [
-  "Website Grader",
-  "Email Signature Generator",
-  "Blog Ideas Generator",
-  "Invoice Generator",
-  "Business Templates",
-  "AI Content Writer",
-  "Make My Persona",
+  ["See All Free Business Tools", "free-tools"],
+  ["AI Search Grader", "ai-search-grader"],
+  ["AI Search Sensor", "ai-search-sensor"],
+  ["Make My Persona", "make-my-persona"],
+  ["Email Signature Generator", "email-signature-generator"],
+  ["Business Templates", "business-templates"],
 ];
 
 const companyLinks = [
-  "About Us",
-  "Careers",
-  "Management Team",
-  "Board of Directors",
-  "Investor Relations",
-  "Contact Us",
-  "Customers",
-  "Partners",
+  { name: "About Us", to: "/About" },
+  { name: "Careers", to: "/careers" },
+  { name: "Management Team", to: "/management-team" },
+  { name: "Board of Directors", to: "/board-of-directors" },
+  { name: "Investor Relations", to: "/investor-relations" },
+  { name: "Blog", to: "/blog" },
+  { name: "Contact Us", to: "/contact" },
+  { name: "Customers", to: "/customers" },
+  { name: "Partners", to: "/partners" },
 ];
 
 const customerLinks = [
-  "Customer Support",
-  "HubSpot Academy",
-  "Community",
-  "Knowledge Base",
-  "Developer Documentation",
-  "Partner Directory",
+  ["Customer Support", "customer-support"],
+  ["Join a Local User Group", "community"],
+];
+
+const partnerLinks = [
+  ["All Partner Programs", "partner-programs"],
+  ["Solutions Partner Program", "solutions-partner-program"],
 ];
 
 const legalLinks = [
@@ -79,10 +85,10 @@ function Footer() {
             <h3>Popular Features</h3>
 
             <div className="footer-feature-grid">
-              {popularFeatures.map((item, index) => (
-                <a href="#" key={index}>
-                  {item}
-                </a>
+              {popularFeatures.map(([name, slug]) => (
+                <Link to={`/${slug}`} key={name}>
+                  {name}
+                </Link>
               ))}
             </div>
           </div>
@@ -91,10 +97,10 @@ function Footer() {
           <div className="footer-column">
             <h3>Free Tools</h3>
 
-            {freeTools.map((item, index) => (
-              <a href="#" key={index}>
-                {item}
-              </a>
+            {freeTools.map(([name, slug]) => (
+              <Link to={`/${slug}`} key={name}>
+                {name}
+              </Link>
             ))}
           </div>
 
@@ -102,21 +108,30 @@ function Footer() {
           <div className="footer-column">
             <h3>Company</h3>
 
-            {companyLinks.map((item, index) => (
-              <a href="#" key={index}>
-                {item}
-              </a>
+            {companyLinks.map((item) => (
+              item.to ? (
+                <Link to={item.to} key={item.name}>{item.name}</Link>
+              ) : (
+                <a href="#" key={item.name} onClick={(event) => event.preventDefault()}>{item.name}</a>
+              )
             ))}
           </div>
 
           {/* CUSTOMERS AND PARTNERS */}
           <div className="footer-column">
-            <h3>Customers & Partners</h3>
+            <h3>Customers</h3>
 
-            {customerLinks.map((item, index) => (
-              <a href="#" key={index}>
-                {item}
-              </a>
+            {customerLinks.map(([name, slug]) => (
+              <Link to={`/${slug}`} key={name}>
+                {name}
+              </Link>
+            ))}
+
+            <h3 className="footer-subheading">Partners</h3>
+            {partnerLinks.map(([name, slug]) => (
+              <Link to={`/${slug}`} key={name}>
+                {name}
+              </Link>
             ))}
           </div>
 

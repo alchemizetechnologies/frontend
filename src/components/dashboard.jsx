@@ -1,7 +1,6 @@
-import { useEffect, useRef, useState } from "react";
-
-
+import { useEffect, useState } from "react";
 import "./dashboard.css";
+import Navbar from "./Navbar";
 
 import card1 from "/images/card1.jpg";
 import card2 from "/images/card2.jpg";
@@ -67,7 +66,6 @@ function ProductName({ name }) {
   return <>{m[1]}{m[2] && <sup>{m[2]}</sup>}</>;
 }
 
-
 const mockRows = [
   ["Customers gone quiet", "312 accounts"],
   ["Biggest group", "Mid-market"],
@@ -81,16 +79,6 @@ const showcase = [
   { id: "three", img: card3, text: ["Stay in control.", "Get results you can trust."], desc: "Marketing, sales, and service share one set of customer data, so your teams and AI always know what customers need." },
 ];
 
-const Sprocket = () => (
-  <svg width="32" height="36" viewBox="0 0 34 38" fill="none" stroke="currentColor" strokeWidth="3.4" strokeLinecap="round" aria-label="HubSpot">
-    <circle cx="22" cy="23" r="6.4" />
-    <path d="M22 16.5V8M17 19L8.5 12.5M16.5 27L8.5 32" />
-    <circle cx="22" cy="5" r="3" fill="currentColor" stroke="none" />
-    <circle cx="6" cy="11" r="3" fill="currentColor" stroke="none" />
-    <circle cx="6" cy="33.5" r="3" fill="currentColor" stroke="none" />
-  </svg>
-);
-
 const products = [
   ["Marketing Hub®", "Attract and convert the right leads.", "Run campaigns, personalize content, and track it all."],
   ["Sales Hub®", "Generate quality leads and close deals, faster.", "Automate prospecting, manage pipeline, and accelerate revenue growth."],
@@ -103,7 +91,6 @@ const products = [
   ["Small Business Bundle", "The Starter edition of each product, at one low price.", "Everything a growing team needs to get started."],
   ["AEO (Beta)", "See where your brand shows up in AI results.", "Get recommendations to improve your visibility."],
 ];
-
 
 const agentCards = [
   {
@@ -156,10 +143,6 @@ const agentCards = [
   }
 ];
 
-
-const apps = ["Gmail", "Shopify", "Mailchimp", "Zapier", "Google Ads", "Slack"];
-
-
 const stories = {
   Enterprise: {
     quote:
@@ -195,7 +178,6 @@ const stories = {
   },
 };
 
-
 const g2 = [
   "Grid Leader (Small Business)",
   "Most Implementable",
@@ -204,39 +186,6 @@ const g2 = [
   "Best Results (Mid-Market)",
   "Best Usability (Enterprise)",
 ];
-
-const footerCols = [
-  {
-    title: "Popular Features",
-    links: [
-      "All Products and Features", "HubSpot AEO", "Free Meeting Scheduler App", "Email Tracking Software",
-      "AI Content Writer", "AI Website Generator", "Email Marketing Software", "Lead Management Software",
-      "AI Prospecting Agent", "Free Website Builder", "Free Landing Page Builder", "Free Online Form Builder",
-      "Free Chatbot Builder", "Free Live Chat Software", "Marketing Analytics", "Breeze Assistant", "Free Web Hosting",
-    ],
-  },
-  {
-    title: "Free Tools",
-    links: [
-      "See All Free Business Tools", "AEO Grader", "AI Search Sensor", "Make My Persona",
-      "Email Signature Generator", "Free Business Templates", "Software Comparisons Library",
-      "Website Templates", "Connector for Claude",
-    ],
-  },
-  {
-    title: "Company",
-    links: [
-      "About Us", "Careers", "Management Team", "Board of Directors", "Investor Relations",
-      "Blog", "Sustainability", "AI Instructions", "Contact Us",
-    ],
-  },
-];
-const customers = ["Customer Support", "Join a Local User Group"];
-const partners = [
-  "All Partner Programs", "Solutions Partner Program", "Technology Partner Program",
-  "HubSpot for Startups", "Affiliate Program",
-];
-const legal = ["Legal Center", "Privacy Policy", "Security", "Website Accessibility", "Manage Cookies"];
 
 const mockSegs = [
   "Build a campaign to win back customers",
@@ -313,37 +262,6 @@ function ShowCard({ s }) {
   );
 }
 
-const I = (p) => (
-  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true" {...p} />
-);
-const GlobeIcon = () => <I><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" /></I>;
-const SupportIcon = () => <I><path d="M4 5h16v11H11l-5 4v-4H4z" /></I>;
-const PersonIcon = () => <I><circle cx="12" cy="8" r="3.5" /><path d="M5 20c0-4 3-6 7-6s7 2 7 6" /></I>;
-const SearchIcon = () => <I width="20" height="20"><circle cx="11" cy="11" r="7" /><path d="M20 20l-4-4" /></I>;
-
-function Dropdown({ name, icon, open, setOpen, align }) {
-  const isOpen = open === name;
-  return (
-    <div className="dd">
-      <button
-        className="dd-btn"
-        aria-expanded={isOpen}
-        aria-haspopup="true"
-        onClick={() => setOpen(isOpen ? null : name)}
-      >
-        {icon}
-        {name}
-        <svg width="12" height="8" viewBox="0 0 12 8" aria-hidden="true"><path d="M1 1.5l5 5 5-5" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" /></svg>
-      </button>
-      {isOpen && (
-        <ul className={"dd-menu" + (align === "right" ? " right" : "")}>
-          {menus[name].map((i) => <li key={i}><a href="#">{i}</a></li>)}
-        </ul>
-      )}
-    </div>
-  );
-}
-
 const Spark = ({ size = 22 }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="#e8356d" aria-hidden="true"><path d="M12 2l2.2 6.8L21 11l-6.8 2.2L12 20l-2.2-6.8L3 11l6.8-2.2z" /></svg>
 );
@@ -382,9 +300,6 @@ function AgentMock({ id }) {
     </div>
   );
 }
-
-
-
 
 function AgentCards() {
   const [active, setActive] = useState(0);
@@ -517,101 +432,15 @@ function Cta({ big }) {
   );
 }
 
-function LinkList({ items }) {
-  return (
-    <ul>
-      {items.map((l) => (
-        <li key={l}><a href="#">{l}</a></li>
-      ))}
-    </ul>
-  );
-}
-
 export default function App() {
   const [tab, setTab] = useState("Enterprise");
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [open, setOpen] = useState(null);
-  const [highContrast, setHighContrast] = useState(false);
-  const [searchOpen, setSearchOpen] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const [paused, setPaused] = useState(false);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 110);
-    onScroll();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
-
-  useEffect(() => {
-    document.documentElement.classList.toggle("hc", highContrast);
-  }, [highContrast]);
-
-  useEffect(() => {
-    const close = (e) => {
-      if (e.key === "Escape") { setOpen(null); setChatOpen(false); }
-      if (e.type === "click" && !e.target.closest(".dd")) setOpen(null);
-    };
-    document.addEventListener("keydown", close);
-    document.addEventListener("click", close);
-    return () => {
-      document.removeEventListener("keydown", close);
-      document.removeEventListener("click", close);
-    };
-  }, []);
   const story = stories[tab];
 
   return (
     <>
-      <div className="util">
-        <div className="wrap">
-          <div className="util-left">
-            <Dropdown name="English" icon={<GlobeIcon />} open={open} setOpen={setOpen} />
-            <label className="hc-toggle">
-              <input type="checkbox" role="switch" checked={highContrast} onChange={(e) => setHighContrast(e.target.checked)} />
-              <span className="switch" aria-hidden="true" />
-              High Contrast
-            </label>
-            <a className="util-link" href="#"><SupportIcon />Customer Support</a>
-            <a className="util-link" href="#"><PersonIcon />Contact Sales</a>
-          </div>
-          <div className="util-right">
-            <button className="icon-btn" aria-label="Search" onClick={() => setSearchOpen((s) => !s)}><SearchIcon /></button>
-            <a href="#">Log in</a>
-            <Dropdown name="About" open={open} setOpen={setOpen} align="right" />
-          </div>
-        </div>
-        {searchOpen && (
-          <div className="wrap search-row">
-            <input type="search" placeholder="Search HubSpot" aria-label="Search HubSpot" autoFocus />
-          </div>
-        )}
-      </div>
-
-      <header className="nav">
-        <div className="wrap">
-          <a className={"logo" + (scrolled ? " mark" : "")} href="#" aria-label="HubSpot">{scrolled ? <Sprocket /> : <>Hub<b>Spot</b></>}</a>
-          <nav className={"nav-links" + (menuOpen ? " open" : "")} aria-label="Main">
-            <Dropdown name="Products" open={open} setOpen={setOpen} />
-            <Dropdown name="Solutions" open={open} setOpen={setOpen} />
-            <a className="plain" href="#">Pricing</a>
-            <Dropdown name="Resources" open={open} setOpen={setOpen} />
-          </nav>
-          <div className="nav-cta">
-            <a className="btn" href="#">Get a demo</a>
-            <a className="btn ghost" href="#">Get started free</a>
-          </div>
-          <button
-            className="menu-btn"
-            aria-label="Toggle menu"
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((o) => !o)}
-          >
-            {menuOpen ? "✕" : "☰"}
-          </button>
-        </div>
-      </header>
+      <Navbar />
 
       <main>
         <section className="hero">
@@ -703,126 +532,119 @@ export default function App() {
           </div>
         </section>
 
+        <section className="integ">
+          <div className="integration-banner">
 
+            <div className="integration-content">
+              <h2>
+                Works with the tools you already use.
+                <br />
+                2,000+ integrations.
+              </h2>
 
+              <a href="#" className="integration-link">
+                See all app integrations
+              </a>
+            </div>
 
-<section className="integ">
-  <div className="integration-banner">
+            <div className="integration-logos">
 
-    <div className="integration-content">
-      <h2>
-        Works with the tools you already use.
-        <br />
-        2,000+ integrations.
-      </h2>
+              <span className="app-logo slack">✣</span>
+              <span className="app-logo zapier">Zapier</span>
+              <span className="app-logo google">G</span>
+              <span className="app-logo mailchimp">♟</span>
+              <span className="app-logo salesforce">☁</span>
+              <span className="app-logo hub">H</span>
+              <span className="app-logo slack second">✣</span>
+              <span className="app-logo zapier second">Zapier</span>
+              <span className="app-logo google second">G</span>
 
-      <a href="#" className="integration-link">
-        See all app integrations
-      </a>
-    </div>
+            </div>
 
-    <div className="integration-logos">
-
-      <span className="app-logo slack">✣</span>
-      <span className="app-logo zapier">Zapier</span>
-      <span className="app-logo google">G</span>
-      <span className="app-logo mailchimp">♟</span>
-      <span className="app-logo salesforce">☁</span>
-      <span className="app-logo hub">H</span>
-      <span className="app-logo slack second">✣</span>
-      <span className="app-logo zapier second">Zapier</span>
-      <span className="app-logo google second">G</span>
-
-    </div>
-
-  </div>
-</section>
-
-
-<section className="case-studies">
-  <div className="wrap">
-
-    {/* Heading */}
-    <div className="case-heading">
-      <h2>
-        Remarkable results for every
-        <br />
-        size business.
-      </h2>
-
-      <p>
-        Scale your business with HubSpot. The proof is in our
-        customers’ success.
-      </p>
-    </div>
-
-    {/* Category Tabs */}
-    <div className="case-tabs">
-      {Object.keys(stories).map((t) => (
-        <button
-          key={t}
-          className={tab === t ? "active" : ""}
-          onClick={() => setTab(t)}
-        >
-          {t}
-        </button>
-      ))}
-    </div>
-
-    
-
-<div className="testimonial-card">
-
-  <div className="testimonial-top">
-
-    {/* LEFT IMAGE */}
-    <div className="testimonial-image">
-      <img
-        src="/images/Unipart-1.webp"
-        alt="Unipart customer story"
-      />
-    </div>
-
-    {/* RIGHT CONTENT */}
-    <div className="testimonial-content">
-
-      {story && (
-        <>
-          <blockquote>
-            “{story.quote}”
-          </blockquote>
-
-          <div className="testimonial-author">
-            <h4>{story.who}</h4>
-            <p>{story.role}</p>
           </div>
+        </section>
 
-          <a href="#" className="testimonial-link">
-            Read full case study
-          </a>
-        </>
-      )}
+        <section className="case-studies">
+          <div className="wrap">
 
-    </div>
+            {/* Heading */}
+            <div className="case-heading">
+              <h2>
+                Remarkable results for every
+                <br />
+                size business.
+              </h2>
 
-  </div>
+              <p>
+                Scale your business with HubSpot. The proof is in our
+                customers’ success.
+              </p>
+            </div>
 
-  {/* STATISTICS */}
-  <div className="testimonial-stats">
+            {/* Category Tabs */}
+            <div className="case-tabs">
+              {Object.keys(stories).map((t) => (
+                <button
+                  key={t}
+                  className={tab === t ? "active" : ""}
+                  onClick={() => setTab(t)}
+                >
+                  {t}
+                </button>
+              ))}
+            </div>
 
-    {story?.stats?.map(([number, label], index) => (
-      <div className="stat-item" key={index}>
-        <h2>{number}</h2>
-        <p>{label}</p>
-      </div>
-    ))}
+            <div className="testimonial-card">
 
-</div>
-  </div>
+              <div className="testimonial-top">
 
-</div>
-</section>
+                {/* LEFT IMAGE */}
+                <div className="testimonial-image">
+                  <img
+                    src="/images/Unipart-1.webp"
+                    alt="Unipart customer story"
+                  />
+                </div>
 
+                {/* RIGHT CONTENT */}
+                <div className="testimonial-content">
+
+                  {story && (
+                    <>
+                      <blockquote>
+                        “{story.quote}”
+                      </blockquote>
+
+                      <div className="testimonial-author">
+                        <h4>{story.who}</h4>
+                        <p>{story.role}</p>
+                      </div>
+
+                      <a href="#" className="testimonial-link">
+                        Read full case study
+                      </a>
+                    </>
+                  )}
+
+                </div>
+
+              </div>
+
+              {/* STATISTICS */}
+              <div className="testimonial-stats">
+
+                {story?.stats?.map(([number, label], index) => (
+                  <div className="stat-item" key={index}>
+                    <h2>{number}</h2>
+                    <p>{label}</p>
+                  </div>
+                ))}
+
+              </div>
+            </div>
+
+          </div>
+        </section>
 
         <section className="g2">
           <div className="wrap">
@@ -841,7 +663,7 @@ export default function App() {
         </section>
       </main>
 
-      <footer/>
+      <footer />
       <div className="chat">
         {chatOpen && (
           <div className="chat-panel" role="dialog" aria-label="Chat">

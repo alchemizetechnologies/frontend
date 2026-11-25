@@ -1,0 +1,309 @@
+.sales-hub-page .pricing-sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.sales-hub-page .currency-picker {
+  margin-top: auto;
+}
+
+.sales-banner {
+  background: #e8f3ff;
+  border-color: #3c88eb;
+  margin-bottom: 30px;
+}
+
+.sales-banner a {
+  flex: none;
+  padding: 12px 22px;
+  border: 1px solid #202b3b;
+  border-radius: 999px;
+  color: #202b3b;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.sales-heading {
+  margin-bottom: 28px;
+}
+
+.sales-heading h1 {
+  font-size: 38px;
+  font-weight: 600;
+}
+
+.sales-heading p {
+  font-size: 16px;
+}
+
+.sales-plan-grid {
+  border-color: #aeb5bd;
+}
+
+.sales-plan-card {
+  min-height: 700px;
+  padding: 24px 20px;
+}
+
+.sales-plan-card .plan-description {
+  min-height: 94px;
+}
+
+.sales-plan-card .plan-price {
+  min-height: 104px;
+}
+
+.sales-plan-card .plan-price strong {
+  font-size: clamp(24px, 2vw, 32px);
+  white-space: nowrap;
+}
+
+.sales-plan-card .plan-price strong span {
+  font-size: 15px;
+}
+
+.sales-plan-card .core-seats {
+  min-height: 0;
+}
+
+.sales-toggle-spacer {
+  height: 74px;
+}
+
+.sales-plan-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.sales-plan-details {
+  margin-top: 20px;
+  font-size: 13px;
+}
+
+.sales-plan-details .plan-metric {
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.sales-plan-details .details-heading {
+  margin: 15px 0 10px;
+}
+
+.sales-plan-details .plan-feature-list {
+  gap: 10px;
+}
+
+.sales-plan-details .plan-onboarding-note {
+  font-size: 12px;
+}
+
+.sales-tax {
+  margin-bottom: 34px;
+}
+
+.sales-credits {
+  margin-top: 12px;
+}
+
+.comparison-sales {
+  padding: 20px 26px 26px;
+  border: 1px solid #d0d0d0;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+  scroll-margin-top: 85px;
+}
+
+.comparison-sales .comparison-section {
+  min-width: 0;
+}
+
+.comparison-sales .comparison-head {
+  grid-template-columns: 220px minmax(0, 1fr);
+}
+
+.comparison-sales .comparison-row {
+  grid-template-columns: 220px repeat(4, minmax(0, 1fr));
+}
+
+.comparison-sales .sticky-plan-head {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.comparison-sales .sticky-plan-head > div {
+  gap: 8px;
+}
+
+.comparison-sales .sticky-plan-head a {
+  min-width: 120px;
+  height: 40px;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--pricing-orange);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.comparison-sales .sticky-plan-head strong {
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.comparison-sales .feature-name {
+  padding-left: 18px;
+}
+
+.comparison-sales .feature-cell {
+  padding: 12px 10px;
+}
+
+.sales-catalog {
+  margin: 20px 8px 10px;
+  text-align: right;
+  font-size: 13px;
+}
+
+.sales-catalog a,
+.integration-banner a {
+  color: #087f8c;
+  font-weight: 700;
+}
+
+.sales-faq {
+  margin-top: 38px;
+}
+
+.sales-faq .faq-item button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sales-faq .faq-item button .sales-faq-chevron {
+  flex: 0 0 18px;
+  width: 18px;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.sales-faq .faq-item button .sales-faq-question {
+  width: auto;
+  flex: 1;
+}
+
+@media (max-width: 1100px) {
+  .sales-plan-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sales-plan-card:nth-child(2) {
+    border-right: 0;
+  }
+
+  .sales-plan-card:nth-child(-n + 2) {
+    border-bottom: 1px solid #aeb5bd;
+  }
+
+  .comparison-sales .comparison-head {
+    grid-template-columns: 200px minmax(0, 1fr);
+  }
+
+  .comparison-sales .comparison-row {
+    grid-template-columns: 200px repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .sales-hub-page {
+    display: block;
+  }
+
+  .sales-hub-page .pricing-sidebar {
+    display: none;
+  }
+
+  .sales-hub-page .pricing-main {
+    padding: 20px 14px 48px;
+  }
+
+  .sales-banner {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 18px;
+  }
+
+  .sales-plan-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sales-plan-card {
+    min-height: auto;
+    border-right: 0;
+    border-bottom: 1px solid #aeb5bd;
+  }
+
+  .sales-plan-card:last-child {
+    border-bottom: 0;
+  }
+
+  .sales-toggle-spacer {
+    height: 0;
+  }
+
+  .sales-credits {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .sales-credits .credits-copy {
+    min-height: 280px;
+    padding: 28px 24px;
+  }
+
+  .sales-credits .credits-agent {
+    grid-column: 1;
+    grid-row: 2;
+    min-height: 590px;
+    border-left: 0;
+    border-top: 1px solid #bfc6cb;
+    padding: 40px 30px 0;
+  }
+
+  .sales-credits .credits-simple {
+    grid-column: 1;
+    grid-row: 3;
+    grid-template-columns: 1fr;
+    padding: 28px 24px;
+  }
+
+  .comparison-sales {
+    padding: 12px;
+    overflow-x: auto;
+  }
+
+  .comparison-sales .comparison-section {
+    min-width: 900px;
+  }
+
+  .comparison-sales .comparison-head {
+    position: static;
+  }
+
+  .sales-catalog {
+    text-align: left;
+  }
+
+  .integration-banner {
+    padding: 24px;
+    flex-direction: column;
+  }
+}

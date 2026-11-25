@@ -1,5 +1,3 @@
-
-import React from "react";
 import {
   BrowserRouter,
   Routes,
@@ -8,7 +6,17 @@ import {
 } from "react-router-dom";
 
 import Dashboard from "./components/dashboard";
-import Footer from "./components/Footer";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import Pricing from "./components/Pricing";
+import MarketingPlus from "./components/MarketingPlus";
+import SmartCrm from "./components/SmartCrm";
+import SalesHub from "./components/SalesHub";
+import ServiceHub from "./components/ServiceHub";
+import ContentHub from "./components/ContentHub";
+import Bundle from "./components/Bundle";
+import SitePage from "./components/SitePage";
+import Footer from "./components/footer";
 
 function App() {
   return (
@@ -24,6 +32,97 @@ function App() {
           element={
             <>
               <Dashboard />
+              <Footer />
+            </>
+          }
+        />
+
+        <Route
+          path="/About"
+          element={
+            <>
+              <About />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <>
+              <Contact />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/pricing"
+          element={
+            <>
+              <Pricing />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/pricing/marketing-plus"
+          element={
+            <>
+              <MarketingPlus />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/pricing/smart-crm"
+          element={
+            <>
+              <SmartCrm />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/pricing/sales"
+          element={
+            <>
+              <SalesHub />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/pricing/service"
+          element={
+            <>
+              <ServiceHub />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/pricing/content"
+          element={
+            <>
+              <ContentHub />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/pricing/bundle"
+          element={
+            <>
+              <Bundle />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="*"
+          element={
+            <>
+              <SitePage />
               <Footer />
             </>
           }

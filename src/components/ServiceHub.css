@@ -1,0 +1,360 @@
+.service-hub-page .pricing-sidebar {
+  display: flex;
+  flex-direction: column;
+}
+
+.service-hub-page .currency-picker {
+  margin-top: auto;
+}
+
+.service-banner {
+  min-height: 110px;
+  background: #e4f3ff;
+  border-color: #1683ff;
+  margin-bottom: 12px;
+}
+
+.service-heading {
+  margin-bottom: 30px;
+}
+
+.service-heading h1 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  font-size: 36px;
+  font-weight: 400;
+}
+
+.service-heading h1 svg {
+  width: 36px;
+  height: 32px;
+  fill: none;
+  stroke: var(--pricing-orange);
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.service-heading p {
+  font-size: 15px;
+}
+
+.service-heading a {
+  color: #087f82;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.service-plan-grid {
+  border-color: #bfc6cb;
+  border-radius: 16px;
+}
+
+.service-plan-card {
+  min-height: 760px;
+  padding: 28px 24px;
+}
+
+.service-plan-card .plan-description {
+  min-height: 110px;
+}
+
+.service-plan-card .plan-price {
+  min-height: 112px;
+}
+
+.service-plan-card .plan-price strong {
+  font-size: clamp(25px, 2.1vw, 35px);
+  white-space: nowrap;
+}
+
+.service-plan-card .plan-price strong span {
+  font-size: 16px;
+}
+
+.service-plan-card .plan-user-note {
+  min-height: 52px;
+  margin: 0 0 14px;
+}
+
+.service-toggle-spacer {
+  height: 74px;
+}
+
+.service-plan-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.service-plan-details {
+  margin-top: 20px;
+  font-size: 13px;
+}
+
+.service-plan-details .plan-metric {
+  margin-bottom: 18px;
+}
+
+.service-plan-details .details-heading {
+  margin: 14px 0 10px;
+}
+
+.service-plan-details .plan-feature-list {
+  gap: 10px;
+}
+
+.service-plan-details .plan-onboarding-note {
+  font-size: 12px;
+}
+
+.service-tax {
+  margin: 16px 0 24px;
+}
+
+.service-view-plans {
+  margin: 24px 0 54px;
+  text-align: center;
+}
+
+.service-view-plans a {
+  color: #087f8c;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.service-credits {
+  margin-bottom: 44px;
+}
+
+.comparison-service {
+  padding: 20px 34px 26px;
+  border: 1px solid #d0d0d0;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+  scroll-margin-top: 85px;
+}
+
+.comparison-service .comparison-section {
+  min-width: 0;
+}
+
+.comparison-service .comparison-head {
+  grid-template-columns: 260px minmax(0, 1fr);
+}
+
+.comparison-service .comparison-row {
+  grid-template-columns: 260px repeat(4, minmax(0, 1fr));
+}
+
+.comparison-service .sticky-plan-head {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.comparison-service .sticky-plan-head > div {
+  gap: 9px;
+}
+
+.comparison-service .sticky-plan-head a {
+  min-width: 116px;
+  height: 40px;
+  padding: 0 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: var(--pricing-orange);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.comparison-service .sticky-plan-head strong {
+  min-height: 15px;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.comparison-service .feature-name {
+  padding-left: 18px;
+}
+
+.comparison-service .feature-cell {
+  padding: 13px 10px;
+}
+
+.service-faq {
+  margin-top: 38px;
+}
+
+.service-faq .faq-item button {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.service-faq .faq-item button .service-faq-chevron {
+  flex: 0 0 18px;
+  width: 18px;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+.service-faq .faq-item button .service-faq-question {
+  width: auto;
+  flex: 1;
+}
+
+.service-catalog {
+  margin: 20px 34px 54px;
+  text-align: right;
+  font-size: 13px;
+}
+
+.service-catalog a {
+  color: #087f8c;
+  font-weight: 700;
+}
+
+.service-plan-help {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 54px;
+}
+
+.service-plan-help h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.service-plan-help a {
+  min-width: 302px;
+  height: 80px;
+  padding: 0 28px;
+  border: 1px solid #333;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  color: #087f82;
+  font-size: 20px;
+  font-weight: 700;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+@media (max-width: 1100px) {
+  .service-plan-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .service-plan-card:nth-child(2) {
+    border-right: 0;
+  }
+
+  .service-plan-card:nth-child(-n + 2) {
+    border-bottom: 1px solid #aeb5bd;
+  }
+
+  .comparison-service .comparison-head {
+    grid-template-columns: 210px minmax(0, 1fr);
+  }
+
+  .comparison-service .comparison-row {
+    grid-template-columns: 210px repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .service-hub-page {
+    display: block;
+  }
+
+  .service-hub-page .pricing-sidebar {
+    display: none;
+  }
+
+  .service-hub-page .pricing-main {
+    padding: 20px 14px 48px;
+  }
+
+  .service-banner {
+    padding: 20px;
+  }
+
+  .service-plan-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-plan-card {
+    min-height: auto;
+    border-right: 0;
+    border-bottom: 1px solid #aeb5bd;
+  }
+
+  .service-plan-card:last-child {
+    border-bottom: 0;
+  }
+
+  .service-toggle-spacer {
+    height: 0;
+  }
+
+  .service-credits {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .service-credits .credits-copy {
+    min-height: 280px;
+    padding: 28px 24px;
+  }
+
+  .service-credits .credits-agent {
+    grid-column: 1;
+    grid-row: 2;
+    min-height: 590px;
+    border-left: 0;
+    border-top: 1px solid #bfc6cb;
+    padding: 40px 30px 0;
+  }
+
+  .service-credits .credits-simple {
+    grid-column: 1;
+    grid-row: 3;
+    grid-template-columns: 1fr;
+    padding: 28px 24px;
+  }
+
+  .comparison-service {
+    padding: 12px;
+    overflow-x: auto;
+  }
+
+  .comparison-service .comparison-section {
+    min-width: 900px;
+  }
+
+  .comparison-service .comparison-head {
+    position: static;
+  }
+
+  .service-catalog {
+    margin: 20px 8px 36px;
+    text-align: left;
+  }
+
+  .integration-banner {
+    padding: 24px;
+    flex-direction: column;
+  }
+}
