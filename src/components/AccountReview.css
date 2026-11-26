@@ -1,0 +1,124 @@
+.review-step {
+  width: min(432px, 100%);
+  text-align: center;
+}
+
+.review-step h1 {
+  margin: 0 0 16px;
+  color: #383838;
+  font-size: 22px;
+  line-height: 28px;
+}
+
+.review-step > p {
+  margin: 0 auto 32px;
+  max-width: 410px;
+  color: #686868;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.review-card {
+  min-height: 154px;
+  box-sizing: border-box;
+  padding: 22px 24px;
+  border: 1px solid #d0d0d0;
+  border-radius: 17px;
+  text-align: left;
+}
+
+.review-card-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.review-company-icon {
+  width: 34px;
+  height: 34px;
+  fill: none;
+  stroke: #727272;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.review-edit {
+  border: 0;
+  background: transparent;
+  color: #333;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.review-company-details {
+  display: grid;
+  gap: 8px;
+  margin-top: 16px;
+  color: #383838;
+  font-size: 14px;
+}
+
+.review-company-details strong {
+  font-size: 17px;
+}
+
+.review-fields {
+  display: grid;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.review-fields label {
+  display: grid;
+  gap: 5px;
+  color: #555;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.review-fields input {
+  width: 100%;
+  min-height: 36px;
+  box-sizing: border-box;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 0 9px;
+  color: #333;
+  font: inherit;
+  font-size: 14px;
+}
+
+.review-create {
+  width: 100%;
+  min-height: 48px;
+  margin-top: 32px;
+  border: 0;
+  border-radius: 25px;
+  background: #00504f;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.review-step > .review-terms {
+  margin: 32px auto 0;
+  max-width: 330px;
+  color: #555;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.review-terms a {
+  color: #333;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .review-step > p {
+    font-size: 16px;
+  }
+}

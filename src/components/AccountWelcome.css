@@ -1,0 +1,78 @@
+.welcome-step {
+  width: min(460px, 100%);
+  text-align: center;
+}
+
+.welcome-gauge {
+  width: 150px;
+  height: 140px;
+  margin-bottom: 12px;
+}
+
+.welcome-step h1 {
+  margin: 0 auto 32px;
+  max-width: 430px;
+  color: #333;
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.28;
+}
+
+.welcome-step p {
+  margin: 0 0 32px;
+  color: #686868;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.welcome-spinner {
+  width: 28px;
+  height: 28px;
+  display: inline-block;
+  box-sizing: border-box;
+  border: 3px solid #d6d6d6;
+  border-top-color: #ff5c35;
+  border-left-color: #ff5c35;
+  border-radius: 50%;
+  animation: welcome-spin 0.9s linear infinite;
+}
+
+.assistant-loading-step .welcome-spinner {
+  width: 40px;
+  height: 40px;
+  margin-bottom: 18px;
+  border-width: 4px;
+}
+
+.assistant-loading-step h1 {
+  margin: 0 auto 10px;
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.assistant-loading-step p {
+  margin: 0;
+  color: #263746;
+  font-size: 14px;
+}
+
+@keyframes welcome-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .welcome-gauge {
+    width: 125px;
+    height: 118px;
+  }
+
+  .welcome-step h1 {
+    font-size: 32px;
+  }
+
+  .welcome-step p {
+    font-size: 16px;
+  }
+}

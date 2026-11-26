@@ -106,7 +106,7 @@ export default function Navbar({ hideOnScroll = false, hideUtility = false, comp
           </div>
           <div className="util-right">
             <button className="icon-btn" aria-label="Search" onClick={() => setSearchOpen((value) => !value)}><SearchIcon /></button>
-            <a href="https://app.hubspot.com/login" target="_blank" rel="noreferrer">Log in</a>
+            <Link to="/login">Log in</Link>
             <Dropdown name="About" open={open} setOpen={setOpen} align="right" />
           </div>
         </div>
@@ -129,8 +129,8 @@ export default function Navbar({ hideOnScroll = false, hideUtility = false, comp
             <Dropdown name="Resources" open={open} setOpen={setOpen} />
           </nav>
           <div className="nav-cta">
-            {!compact && <a className="btn" href="#">Get a demo</a>}
-            <a className="btn ghost" href="#">{compact ? "Get started" : "Get started free"}</a>
+            {!compact && <Link className="btn" to="/contact">Get a demo</Link>}
+            <Link className="btn ghost" to="/signup">{compact ? "Get started" : "Get started free"}</Link>
           </div>
           <button className="menu-btn" aria-label="Toggle menu" aria-expanded={menuOpen} onClick={() => setMenuOpen((value) => !value)}>
             {menuOpen ? "✕" : "☰"}

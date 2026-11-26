@@ -1,0 +1,112 @@
+.company-topbar {
+  position: absolute;
+  top: 28px;
+  left: 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.company-topbar .onboarding-brand {
+  position: static;
+}
+
+.onboarding-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: #333;
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.onboarding-back span {
+  font-size: 25px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.company-step {
+  width: min(432px, 100%);
+  text-align: center;
+}
+
+.company-step h1 {
+  margin: 0 0 16px;
+  color: #383838;
+  font-size: 22px;
+  line-height: 28px;
+}
+
+.company-step > p {
+  margin: 0 0 32px;
+  color: #686868;
+  font-size: 18px;
+  line-height: 25px;
+}
+
+.company-step form {
+  display: grid;
+  gap: 20px;
+}
+
+.company-website-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.company-step input {
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  border: 2px solid #0878ff;
+  border-radius: 6px;
+  padding: 0 14px;
+  color: #383838;
+  font: inherit;
+  font-size: 14px;
+  outline: none;
+}
+
+.company-step input::placeholder {
+  color: #777;
+  opacity: 1;
+}
+
+.company-step form button {
+  width: 100%;
+  min-height: 40px;
+  border: 0;
+  border-radius: 24px;
+  background: #00a4a6;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.company-step form button:disabled {
+  background: #f1f1f1;
+  color: #909090;
+  cursor: not-allowed;
+}
+
+@media (max-width: 600px) {
+  .company-topbar {
+    top: 28px;
+    left: 24px;
+    gap: 16px;
+  }
+
+  .company-step > p {
+    font-size: 16px;
+  }
+}

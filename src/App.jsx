@@ -17,6 +17,14 @@ import ContentHub from "./components/ContentHub";
 import Bundle from "./components/Bundle";
 import SitePage from "./components/SitePage";
 import Footer from "./components/footer";
+import AuthPage from "./components/AuthPage";
+import OnboardingRole from "./components/OnboardingRole";
+import CompanyWebsite from "./components/CompanyWebsite";
+import AccountReview from "./components/AccountReview";
+import AccountWelcome, { OnboardingLoading } from "./components/AccountWelcome";
+import EmailSync from "./components/EmailSync";
+import AiAssistSetup from "./components/AiAssistSetup";
+import AiToolsSetup from "./components/AiToolsSetup";
 
 function App() {
   return (
@@ -118,6 +126,16 @@ function App() {
             </>
           }
         />
+        <Route path="/signup" element={<AuthPage mode="signup" />} />
+        <Route path="/login" element={<AuthPage mode="login" />} />
+        <Route path="/onboarding/role" element={<OnboardingRole />} />
+        <Route path="/onboarding/company-website" element={<CompanyWebsite />} />
+        <Route path="/onboarding/review" element={<AccountReview />} />
+        <Route path="/onboarding/welcome" element={<AccountWelcome />} />
+        <Route path="/onboarding/email-sync" element={<EmailSync />} />
+        <Route path="/onboarding/ai-loading" element={<OnboardingLoading />} />
+        <Route path="/onboarding/ai-assist" element={<AiAssistSetup />} />
+        <Route path="/onboarding/ai-tools" element={<AiToolsSetup />} />
         <Route
           path="*"
           element={
