@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./OnboardingRole.css";
 import "./CompanyWebsite.css";
 import "./AccountReview.css";
+import { markAccountCreated, readCurrentAccount } from "./accountStorage";
 
 function getCompanyDomain() {
   const website = localStorage.getItem("companyWebsite") || "";
@@ -32,11 +33,6 @@ function getCompanyName(domain) {
     .join(" ");
 }
 
-function getGoogleUser() {
-  const storedUser = localStorage.getItem("googleUser");
-  return storedUser ? JSON.parse(storedUser) : {};
-}
-
 function CompanyIcon() {
   return (
     <svg className="review-company-icon" viewBox="0 0 32 32" aria-hidden="true">
@@ -51,12 +47,18 @@ export default function AccountReview() {
   const [companyEmail, setCompanyEmail] = useState(() => domain ? `info@${domain}` : "");
   const [isEditing, setIsEditing] = useState(false);
   const navigate = useNavigate();
-  const googleUser = getGoogleUser();
-  const firstName = googleUser.name?.trim().split(/\s+/)[0];
+  const user = readCurrentAccount() || {};
+  const firstName = user.name?.trim().split(/\s+/)[0];
 
   function createAccount() {
     localStorage.setItem("companyName", companyName.trim());
     localStorage.setItem("companyEmail", companyEmail.trim());
+    markAccountCreated(user.email, {
+      companyName: companyName.trim(),
+      companyEmail: companyEmail.trim(),
+      companyWebsite: localStorage.getItem("companyWebsite") || "",
+      role: localStorage.getItem("userRole") || "",
+    });
     navigate("/onboarding/welcome");
   }
 

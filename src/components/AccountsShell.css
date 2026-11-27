@@ -1,0 +1,94 @@
+.accounts-header {
+  height: 44px;
+  border-bottom: 1px solid #e2e5e9;
+  background: #fff;
+}
+
+.accounts-header-inner {
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0 18px;
+  display: flex;
+  align-items: center;
+}
+
+.accounts-brand {
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+}
+
+.accounts-brand-mark {
+  width: 22px;
+  height: 26px;
+  color: #ff7a59;
+  fill: #ff7a59;
+  stroke: #ff7a59;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.accounts-user-menu {
+  position: relative;
+  margin-left: auto;
+}
+
+.accounts-user-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #53606d;
+  cursor: pointer;
+}
+
+.accounts-user-icon {
+  width: 17px;
+  height: 17px;
+  fill: #dce5eb;
+  stroke: #fff;
+  stroke-width: 1.4;
+}
+
+.accounts-chevron {
+  width: 10px;
+  height: 7px;
+  fill: none;
+  stroke: #53606d;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+
+.accounts-user-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 20;
+  min-width: 190px;
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid #dfe3eb;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.accounts-user-label,
+.accounts-user-dropdown a {
+  overflow: hidden;
+  color: #33475b;
+  font-size: 13px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.accounts-user-label {
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e2e5e9;
+  color: #53606d;
+}

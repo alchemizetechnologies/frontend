@@ -2,12 +2,10 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./OnboardingRole.css";
 import "./AccountWelcome.css";
+import { readCurrentAccount } from "./accountStorage";
 
 function getFirstName() {
-  const storedUser = localStorage.getItem("googleUser");
-  if (!storedUser) return "";
-
-  const user = JSON.parse(storedUser);
+  const user = readCurrentAccount() || {};
   return user.name?.trim().split(/\s+/)[0] || "";
 }
 

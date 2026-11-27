@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./OnboardingRole.css";
 import "./AiToolsSetup.css";
 import AiWorkspaceSetup from "./AiWorkspaceSetup";
+import { readCurrentAccount } from "./accountStorage";
 
 const toolCatalog = [
   { id: "zapier", name: "Zapier", mark: "Z", tone: "orange", description: "Automate handoffs between your apps." },
@@ -46,8 +47,7 @@ function getToolName(toolId) {
 }
 
 function getUser() {
-  const savedUser = localStorage.getItem("googleUser");
-  return savedUser ? JSON.parse(savedUser) : {};
+  return readCurrentAccount() || {};
 }
 
 async function requestAssistant(messages, context) {

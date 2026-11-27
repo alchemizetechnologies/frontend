@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import "./dashboard.css";
+import { hasCreatedAccount, readCurrentAccount } from "./accountStorage";
 
 const menus = {
   Products: ["Marketing Hub", "Sales Hub", "Service Hub", "Content Hub", "Data Hub", "Revenue Hub", "Smart CRM", "Agent Hub"],
@@ -65,6 +66,7 @@ export default function Navbar({ hideOnScroll = false, hideUtility = false, comp
   const [searchOpen, setSearchOpen] = useState(false);
   const [highContrast, setHighContrast] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const hasAccount = hasCreatedAccount(readCurrentAccount());
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 110);
@@ -106,7 +108,7 @@ export default function Navbar({ hideOnScroll = false, hideUtility = false, comp
           </div>
           <div className="util-right">
             <button className="icon-btn" aria-label="Search" onClick={() => setSearchOpen((value) => !value)}><SearchIcon /></button>
-            <Link to="/login">Log in</Link>
+            <Link to={hasAccount ? "/account" : "/login"}>{hasAccount ? "Go to my account" : "Log in"}</Link>
             <Dropdown name="About" open={open} setOpen={setOpen} align="right" />
           </div>
         </div>

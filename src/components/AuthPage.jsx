@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./AuthPage.css";
+import { markAccountCreated } from "./accountStorage";
 
 function AlchemizeMark({ login = false }) {
   return (
@@ -34,6 +35,7 @@ function saveAccountProfile(user) {
     || {};
   const timestamp = new Date().toISOString();
   const profile = {
+    ...existingAccount,
     sub: user.sub || user.uid || existingAccount.sub || accountId,
     name: user.name?.trim() || user.displayName?.trim() || existingAccount.name || email.split("@")[0],
     email: email || existingAccount.email || "",
@@ -46,11 +48,12 @@ function saveAccountProfile(user) {
     ...accounts,
     [accountId]: profile,
   }));
-  localStorage.setItem("googleUser", JSON.stringify(profile));
+  localStorage.setItem("currentAccountId", accountId);
+  localStorage.removeItem("googleUser");
   return profile;
 }
 
-function GoogleSignInButton({ width = 364, onSuccess }) {
+function GoogleSignInButton({ width = 364, onSuccess, onError }) {
   const buttonRef = useRef(null);
 
   useEffect(() => {
@@ -73,7 +76,7 @@ function GoogleSignInButton({ width = 364, onSuccess }) {
 
             onSuccess(payload);
           } catch {
-            localStorage.removeItem("googleUser");
+            onError("Could not read the Google sign-in response. Please try again.");
           }
         },
       });
@@ -109,7 +112,7 @@ function GoogleSignInButton({ width = 364, onSuccess }) {
     document.head.appendChild(script);
 
     return () => script.removeEventListener("load", renderButton);
-  }, [onSuccess, width]);
+  }, [onError, onSuccess, width]);
 
   return <div className="google-signin-host" ref={buttonRef} aria-label="Continue with Google" />;
 }
@@ -161,12 +164,18 @@ export default function AuthPage({ mode = "signup" }) {
     }
 
     if (isSignup) {
+      localStorage.removeItem("createdAccountEmail");
       navigate("/onboarding/role");
       return;
     }
 
+    markAccountCreated(account.email);
     setWelcomeUser(account);
   }, [isSignup, navigate]);
+
+  const handleGoogleError = useCallback((message) => {
+    setAuthError(message);
+  }, []);
 
   return (
     <main className={"auth-page " + mode}>
@@ -188,7 +197,7 @@ export default function AuthPage({ mode = "signup" }) {
             <p className="auth-subtitle">100% free. No credit card needed.</p>
 
             <div className="social-buttons">
-              <GoogleSignInButton width={410} onSuccess={handleGoogleSuccess} />
+              <GoogleSignInButton width={410} onSuccess={handleGoogleSuccess} onError={handleGoogleError} />
             </div>
             <div className="auth-divider"><span>OR</span></div>
             {isLocalDevEmailTestMode && (
@@ -224,7 +233,7 @@ export default function AuthPage({ mode = "signup" }) {
             <AlchemizeMark login />
             <h1>Sign in</h1>
             <p className="login-create">or <Link to="/signup">create an account</Link></p>
-            <GoogleSignInButton width={364} onSuccess={handleGoogleSuccess} />
+            <GoogleSignInButton width={364} onSuccess={handleGoogleSuccess} onError={handleGoogleError} />
             <div className="login-divider"><span>OR</span></div>
             {isLocalDevEmailTestMode && (
               <p className="auth-test-note" role="note">Local test mode only: email is not verified or saved as an account.</p>

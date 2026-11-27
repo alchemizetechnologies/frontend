@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import "./OnboardingRole.css";
 import "./AiAssistSetup.css";
 import AiToolsSetup from "./AiToolsSetup";
+import { readCurrentAccount } from "./accountStorage";
 
 const suggestedGoals = [
   "Track student admissions",
@@ -32,11 +33,6 @@ function AssistantMark() {
   );
 }
 
-function readGoogleUser() {
-  const savedUser = localStorage.getItem("googleUser");
-  return savedUser ? JSON.parse(savedUser) : {};
-}
-
 function getNameFromEmail(email) {
   const localPart = email.split("@")[0] || "";
   return localPart
@@ -58,9 +54,9 @@ export default function AiAssistSetup() {
   const [isManualDialogOpen, setIsManualDialogOpen] = useState(false);
   const [manualGoal, setManualGoal] = useState("");
   const navigate = useNavigate();
-  const googleUser = readGoogleUser();
-  const userEmail = googleUser.email || "";
-  const fullName = googleUser.name?.trim() || getNameFromEmail(userEmail);
+  const user = readCurrentAccount() || {};
+  const userEmail = user.email || "";
+  const fullName = user.name?.trim() || getNameFromEmail(userEmail);
   const firstName = fullName.split(/\s+/)[0] || "";
   const companyName = localStorage.getItem("companyName")?.trim() || "";
   const companySize = localStorage.getItem("companySize")?.trim() || "";

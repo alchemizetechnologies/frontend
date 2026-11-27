@@ -1,13 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./AiWorkspaceSetup.css";
+import { readCurrentAccount } from "./accountStorage";
 
-function readGoogleUser() {
-  try {
-    return JSON.parse(localStorage.getItem("googleUser")) || {};
-  } catch {
-    return {};
-  }
+function readUser() {
+  return readCurrentAccount() || {};
 }
 
 function readSelectedToolNames() {
@@ -53,7 +50,7 @@ export default function AiWorkspaceSetup({
   const [showSuggestions, setShowSuggestions] = useState(true);
   const [imageAttempts, setImageAttempts] = useState([]);
   const navigate = useNavigate();
-  const user = readGoogleUser();
+  const user = readUser();
   const companyName = readContextValue("companyName");
   const companySize = readContextValue("companySize");
   const industry = readContextValue("companyIndustry");
